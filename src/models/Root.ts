@@ -3,15 +3,23 @@ import { types, Instance, onSnapshot } from "mobx-state-tree";
 
 import { Counter } from "./Counter";
 import { Cart } from "./Cart";
+import { Auth } from "./Auth";
 
 const RootModel = types.model({
   counter: Counter,
+  auth: Auth,
   cart: Cart
 });
 
 let initialState = RootModel.create({
   counter: {
     count: 0
+  },
+  auth: {
+    emailValid: false,
+    loggedIn:false,
+    tempToken: '',
+    realToken: ''
   },
   cart: { items: [] }
 });

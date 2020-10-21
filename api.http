@@ -1,0 +1,18 @@
+POST  {{HOST}}/login/email
+Content-Type: application/json
+
+{"email":"example@test.com"}
+###
+POST  {{HOST}}/login/password
+Content-Type: application/json
+Authorization: Bearer AVNcGAowXBFpbR08UiceCz13GAMQFmQVC1ltGhERH3NAUwhMWncJAn1+QHEde19XehtOAxsSaExVAn8FAEhaZ09ECkReJA==
+
+{"password":"passworth"}
+###
+
+POST {{HOST}}/posts
+Content-Type: application/json
+Authorization: Bearer AVNQEUljAh9xIRkpVmhURR1PDQsTDi9USBYmRhFCTWBDQBdMWncBC2ZhSXUDaBM=
+
+{}
+###

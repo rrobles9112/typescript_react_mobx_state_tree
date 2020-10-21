@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,7 +13,7 @@
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -22,5 +26,7 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
