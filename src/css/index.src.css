@@ -17,11 +17,10 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background: theme("colors.gray.200");
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme("colors.orange.500");
+
 }
 
 @tailwind utilities;

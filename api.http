@@ -10,9 +10,33 @@ Authorization: Bearer AVNcGAowXBFpbR08UiceCz13GAMQFmQVC1ltGhERH3NAUwhMWncJAn1+QH
 {"password":"passworth"}
 ###
 
-POST {{HOST}}/posts
+GET {{HOST}}/posts
 Content-Type: application/json
 Authorization: Bearer AVNQEUljAh9xIRkpVmhURR1PDQsTDi9USBYmRhFCTWBDQBdMWncBC2ZhSXUDaBM=
 
-{}
+###
+
+POST {{HOST}}/posts
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Authorization: Bearer AVNQEUljAh9xIRkpVmhURR1PDQsTDi9USBYmRhFCTWBDQBdMWncBC2ZhSXUDaBM=
+
+--WebAppBoundary
+Content-Disposition: form-data; name="title"
+
+Hola mundo
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="image2.png"
+
+< ./src/assets/mstlogo.png
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="content"
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur exercitationem illo odio voluptates. Animi aperiam, at, beatae consequuntur cumque deleniti esse expedita modi nobis numquam obcaecati omnis quas rerum, vitae!
+--WebAppBoundary--
+
+###
 ###

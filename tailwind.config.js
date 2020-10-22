@@ -16,32 +16,31 @@ module.exports = {
         '"Apple Color Emoji"',
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
-        '"Noto Color Emoji"'
-      ]
+        '"Noto Color Emoji"',
+      ],
     },
-    customForms: theme => ({
+    customForms: (theme) => ({
       default: {
         input: {
-          backgroundColor: theme("colors.gray.900"),
           "&::placeholder": {
             color: theme("colors.gray.500"),
-            opacity: "1"
+            opacity: "1",
           },
           "&:focus": {
             outline: "none",
             boxShadow: theme("boxShadow.none"),
-            borderColor: theme("colors.orange.500")
-          }
-        }
-      }
+            borderColor: theme("colors.orange.500"),
+          },
+        },
+      },
     }),
     extend: {
       boxShadow: {
         ...boxShadow,
-        outline: "0 0 0 3px rgba(239, 121, 48, 0.5)"
-      }
-    }
+        outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
+      },
+    },
   },
   variants: {},
-  plugins: [require("@tailwindcss/custom-forms"),require("@tailwindcss/ui")]
+  plugins: [require("@tailwindcss/custom-forms"), require("@tailwindcss/ui")],
 };

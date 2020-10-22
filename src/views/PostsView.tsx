@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { observer } from "mobx-react-lite";
 import { useMst } from "../models/Root";
 import ModalPost from "../components/Modal";
-import { Card } from "antd";
+import { Card, Button } from "antd";
 
 type PostsProps = {};
 
@@ -13,16 +13,38 @@ const PostsView: React.FC<PostsProps> = () => {
     posts.getPosts();
   }, []);
 
+  const [visible, setvisible] = useState(false);
+
+  const handleOk = (e) => {
+    console.log(e);
+    setvisible(false);
+  };
+
+  const handleCancel = (e) => {
+    console.log(e);
+    setvisible(false);
+  };
+
   return (
     <>
       <Header />
-      <ModalPost />
+      <ModalPost
+        show={visible}
+        onHandleOk={handleOk}
+        onHandleClose={handleCancel}
+      />
       <div className="lg:container lg:mx-auto p-5">
+        <Button type="primary" onClick={(e) => setvisible(true)}>
+          Add Post
+        </Button>
         <div className="max-h-full w-full bg-white p-10">
           <div className="flex-row">
-            {posts.posts.map((item) => {
+            {posts.posts.map((item, index) => {
               return (
-                <div className="max-w-sm rounded overflow-hidden shadow-lg flex">
+                <div
+                  className="max-w-sm rounded overflow-hidden shadow-lg flex"
+                  key={index}
+                >
                   <div className="w-1/3">
                     <img
                       className="w-full"
