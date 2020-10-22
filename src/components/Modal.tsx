@@ -3,7 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { observer } from "mobx-react-lite";
 import { useMst } from "../models/Root";
 import { useHistory } from "react-router-dom";
-import { Modal } from "antd";
+import { Modal, notification } from "antd";
 import { useForm } from "react-hook-form";
 
 type ModalProps = {
@@ -27,7 +27,9 @@ const ModalPost: React.FC<ModalProps> = observer((props) => {
         formData.append("image", data.image[0], "image2.png");
       }
     }
-    posts.addPosts(formData);
+    posts.addPosts(formData).then((data) => {
+      props.onHandleOk();
+    });
   };
   console.log(errors);
 
@@ -36,6 +38,7 @@ const ModalPost: React.FC<ModalProps> = observer((props) => {
       <Modal
         title="Add Post Modal"
         visible={props.show}
+        footer={null}
         onCancel={props.onHandleClose}
         onOk={props.onHandleOk}
       >

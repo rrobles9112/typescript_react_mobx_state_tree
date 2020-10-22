@@ -42,12 +42,12 @@ const PostsView: React.FC<PostsProps> = () => {
             {posts.posts.map((item, index) => {
               return (
                 <div
-                  className="max-w-sm rounded overflow-hidden shadow-lg flex"
+                  className="max-w-full rounded overflow-hidden shadow-lg flex mb-15"
                   key={index}
                 >
                   <div className="w-1/3">
                     <img
-                      className="w-full"
+                      style={{ maxWidth: "50%", maxHeight: "100px" }}
                       src={item.image}
                       alt="Sunset in the mountains"
                     />
