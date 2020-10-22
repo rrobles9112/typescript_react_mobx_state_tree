@@ -1,5 +1,5 @@
 import { types, flow, getParent } from "mobx-state-tree";
-import { rootStore } from "./Root";
+
 
 export const Auth = types
   .model({
@@ -11,8 +11,11 @@ export const Auth = types
   })
   .actions((self) => ({
     logout() {
-      console.log("logout");
-      console.dir(rootStore);
+      self.realToken = "";
+      self.loggedIn = false;
+      self.emailValid = false;
+      self.userName = "";
+      window.localStorage.clear();
     },
     getTemporaryToken: flow(function* fetchTemporaryToken(email) {
       try {

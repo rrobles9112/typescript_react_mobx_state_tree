@@ -1,30 +1,25 @@
 import { useContext, createContext } from "react";
 import { types, Instance, onSnapshot } from "mobx-state-tree";
 
-import { Counter } from "./Counter";
-import { Cart } from "./Cart";
+import { Posts } from "./Posts";
 import { Auth } from "./Auth";
 
 const RootModel = types.model({
-  counter: Counter,
   auth: Auth,
-  cart: Cart
+  posts: Posts,
 });
 
 let initialState = RootModel.create({
-  counter: {
-    count: 0
-  },
   auth: {
     emailValid: false,
-    loggedIn:false,
-    tempToken: '',
-    realToken: ''
+    loggedIn: false,
+    tempToken: "",
+    realToken: "",
   },
-  cart: { items: [] }
+  posts: { posts: [] },
 });
 
-const data = localStorage.getItem('rootState');
+const data = localStorage.getItem("rootState");
 if (data) {
   const json = JSON.parse(data);
   if (RootModel.is(json)) {
@@ -34,9 +29,9 @@ if (data) {
 
 export const rootStore = initialState;
 
-onSnapshot(rootStore, snapshot => {
+onSnapshot(rootStore, (snapshot) => {
   console.log("Snapshot: ", snapshot);
-  localStorage.setItem('rootState', JSON.stringify(snapshot));
+  localStorage.setItem("rootState", JSON.stringify(snapshot));
 });
 
 export type RootInstance = Instance<typeof RootModel>;

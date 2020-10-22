@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a Post instance 1`] = `Array []`;
+
+exports[`should create an array Posts instance 1`] = `
+Object {
+  "posts": Array [
+    Object {
+      "content": "lorem insump",
+      "image": "image.png",
+      "title": "Google Pixel 3",
+    },
+    Object {
+      "content": "lorem insump",
+      "image": "image.png",
+      "title": "Google Pixel 3",
+    },
+  ],
+}
+`;

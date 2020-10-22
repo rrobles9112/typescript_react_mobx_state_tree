@@ -2,11 +2,18 @@ import React from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { observer } from "mobx-react-lite";
 import { useMst } from "../models/Root";
+import { useHistory } from "react-router-dom";
 
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = observer(() => {
   const { auth } = useMst();
+  let history = useHistory();
+  const logout = () => {
+    auth.logout();
+    history.push("/");
+  };
+
   return (
     <nav className="bg-gray-800 w-full">
       <div className="max-w-90 mx-auto px-2 sm:px-6 lg:px-8">
@@ -118,7 +125,7 @@ const Header: React.FC<HeaderProps> = observer(() => {
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                onClick={() => auth.logout()}
+                                onClick={() => logout()}
                                 className={`${
                                   active
                                     ? "bg-gray-100 text-gray-900"
