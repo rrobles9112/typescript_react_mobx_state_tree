@@ -27,9 +27,14 @@ const ModalPost: React.FC<ModalProps> = observer((props) => {
         formData.append("image", data.image[0], "image2.png");
       }
     }
-    posts.addPosts(formData).then((data) => {
-      props.onHandleOk();
-    });
+    posts
+      .addPosts(formData)
+      .then((data) => {
+        props.onHandleOk();
+      })
+      .catch((error) => {
+        notification.error(error);
+      });
   };
   console.log(errors);
 

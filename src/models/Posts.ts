@@ -2,6 +2,7 @@ import { types, flow, getSnapshot } from "mobx-state-tree";
 import axios from "axios";
 import { rootStore } from "./Root";
 import { action } from "mobx";
+import { notification } from "antd";
 export const Post = types.model({
   title: types.string,
   content: types.string,
@@ -57,7 +58,22 @@ export const Posts = types
         );
         if (response.data) {
           console.log(response);
+          notification.success({
+            message: "Post Saved",
+            description: "ok",
+            onClick: () => {
+              console.log("Notification Clicked!");
+            },
+          });
           getPosts();
+        } else {
+          notification.error({
+            message: "Post Error",
+            description: "error",
+            onClick: () => {
+              console.log("Notification Clicked!");
+            },
+          });
         }
       } catch (e) {
         console.error("Failed to fetch", e);
